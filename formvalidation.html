@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        form{
+            width: 300px;
+            margin: 20px auto;
+        }
+        label{display: block;}
+
+        form div{
+            margin: 10px;
+        }
+
+        input:invalid{
+            border: 2px solid red;
+        }
+        input:valid{
+            border: 2px solid green;
+        }
+    </style>
+</head>
+<body>
+    
+    <form action="" method="post" autocomplete="off">
+      <div>
+        <label for="nama">Masukan Nama:</label>
+        <input type="text" name="nama" id="nama" autocomplete="off" autofocus maxlength="10">
+      </div>  
+
+        <div>
+            <label for="email">Masukan Email:</label>
+            <input type="email" name="email" id="email" >
+        </div>
+
+        <div>
+            <label for="pesan">Masukan Pesan:</label>
+            <textarea name="pesan" id="pesan" cols="30" rows="10"></textarea>
+        </div>
+
+        <div>
+            <label for="jenis_kelamin">Jenis Kelamin:</label>
+            <input type="radio" name="jenis_kelamin" id="jenis_kelamin" value="laki-laki">Laki-laki
+            <input type="radio" name="jenis_kelamin" id="jenis_kelamin" value="perempuan">Perempuan
+        </div>
+
+        <div>
+            <label for="agama">Agama:</label>
+            <select name="agama" id="agama">
+                <option value="islam">Islam</option>
+                <option value="kristen">Kristen</option>
+                <option value="hindu">Hindu</option>
+                <option value="budha">Budha</option>
+            </select>
+        </div>
+
+        <!-- datepicker from -->
+        <div>
+            <label for="tanggal">Tanggal Lahir:</label>
+            <input type="date" name="tanggal" id="tanggal">
+        </div>
+
+        <!-- color picker -->
+        <div>
+            <label for="warna">Warna Kesukaan:</label>
+            <input type="color" name="warna" id="warna">
+            <span class="hex"></span>
+        </div>
+
+        <!-- number make with number in side-->
+        <div>
+            
+            <label for="angka">Angka Kesukaan:</label>
+            <input type="number" name="angka" id="angka" min="10" max="100" step="5">
+        
+
+            
+        </div>
+
+        <!-- range -->
+        <div>
+            <label for="range">Range:</label>
+            <span class="awal"></span>
+            <input type="range" name="range" id="range" min="0" max="100">
+            <span class="Akhir"></span>
+        </div>
+
+        <!-- checkbox for hoby-->
+        <div>
+            <label for="hoby">Hoby:</label>
+            <input type="checkbox" name="hoby[]" id="hoby" value="membaca">Membaca
+            <input type="checkbox" name="hoby[]" id="hoby" value="menulis">Menulis
+            <input type="checkbox" name="hoby[]" id="hoby" value="menggambar">Menggambar
+            <input type="checkbox" name="hoby[]" id="hoby" value="berenang">Berenang
+        </div>
+
+        <!-- file -->
+        <div>
+            <label for="file">File:</label>
+            <input type="file" name="file" id="file">
+        </div>
+
+        <!-- url -->
+        <div>
+            <label for="url">URL:</label>
+            <input type="url" name="url" id="url">
+        </div>
+
+        <!-- zipCode -->
+        <div>
+            <label for="zipCode">Zip Code:</label>
+            <input type="text" name="zipCode" id="zipCode" pattern="[0-9]{5}">
+        </div>
+
+
+        
+
+      <div>
+        <button type="submit">
+            kirim
+        </button>
+      </div>
+    </form>
+
+    <script>
+        // const range = document.querySelector('#range');
+        // const awal = document.querySelector('.awal');
+        // const Akhir = document.querySelector('.Akhir');
+        
+        // awal.innnerHTML = 0;
+        // akhir.innerHTML = range.value;
+        // range.addEventListener('change', function(){
+        //     akhir.innerHTML = range.value;
+        // });
+
+        const warna = document.querySelector('#warna');
+        const hex = document.querySelector('.hex');
+
+        hex.innerHTML = warna.value;
+        warna.addEventListener('input', function(){
+            hex.innerHTML = warna.value;
+            hex.style.color = warna.value;
+        });
+
+    </script>
+   
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>storage</title>
+    <style>
+        a {
+            color: inherit;
+        }
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+        .light-mode {
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1></h1>
+    <a href="#" onclick="gantiNama()">Anda mau ganti nama ?</a>
+    <br>
+    <a href="#" onclick="hapusNama()">Anda mau hapus nama ?</a>
+    <br>
+    <a href="#" class="toggle">Dark Mode</a>
+    <br>
+    <a href="" onclick="hapusData()">Hapus Semua Data Storage</a>
+
+    <script>
+        let name = localStorage.getItem("N");
+
+        if (name == null) {
+            name = prompt("Siapa nama kamu?");
+        }
+        const nameTitle = document.querySelector("h1");
+        nameTitle.innerHTML = 'Halo, ' + name + '!';
+
+        function gantiNama() {
+            name = prompt("Siapa nama kamu?");
+            localStorage.setItem("N", name);
+            nameTitle.innerHTML = 'Halo, ' + name + '!';
+        }
+
+        function hapusNama() {
+            localStorage.removeItem("N");
+            nameTitle.innerHTML = 'Halo, ' + name + '!';
+        }
+
+        const toggle = document.querySelector(".toggle");
+        let tema = localStorage.getItem("tema");
+
+        if (tema == null) {
+            localStorage.setItem("tema", "light");
+        }
+
+        function setTema(tema) {
+            if (tema === 'dark') {
+                document.body.classList.add("dark-mode");
+                toggle.innerHTML = "Light Mode";
+            } else {
+                document.body.classList.remove("dark-mode");
+                toggle.innerHTML = "Dark Mode";
+            }
+            localStorage.setItem("tema", tema);
+        }
+
+        toggle.addEventListener('click', function(e) {
+            tema = localStorage.getItem("tema");
+            if (tema === 'light') {
+                setTema('dark');
+            } else {
+                setTema('light');
+            }
+            e.preventDefault();
+        });
+
+        hapusData = () => {
+            localStorage.clear();
+        }
+
+        // Memuat tema saat halaman pertama kali dibuka
+        setTema(tema);
+    </script>
+</body>
+</html>

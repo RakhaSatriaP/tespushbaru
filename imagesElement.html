@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images Element</title>
+</head>
+<body>
+    <img src="../HTML/Aset/passfoto.jpg" 
+    alt="PassFoto" 
+    width="150px" 
+    height="200px"
+    title="PassFoto"
+    
+    loading="lazy">
+
+    <figure>
+        <img src="../HTML/Aset/passfoto.jpg" 
+        alt="PassFoto" 
+        width="150px" 
+        height="200px"
+        title="PassFoto"
+        
+        loading="lazy">
+        <figcaption>PassFoto</figcaption>
+    </figure>
+
+    <picture>  
+        <source media="(min-width: 950px)" srcset="../HTML/Aset/passfoto.jpg">
+        <source media="(min-width: 465px)" srcset="../HTML/Aset/KTP.jpg">
+        <img src="../HTML/Aset/passfoto.jpg" alt="Flowers" style="width:auto;">
+    </picture>
+</body>
+</html>
